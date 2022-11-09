@@ -28,4 +28,8 @@ public class EmployeeService {
 		empRepo.save(employee);
 	}
 
+	public void delEmp(int id) {
+		empRepo.deleteById(id);
+	}
+
 }
