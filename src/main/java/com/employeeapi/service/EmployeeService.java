@@ -24,4 +24,8 @@ public class EmployeeService {
 		return empList;
 	}
 
+	public void updEmp(Employee employee) {
+		empRepo.save(employee);
+	}
+
 }
