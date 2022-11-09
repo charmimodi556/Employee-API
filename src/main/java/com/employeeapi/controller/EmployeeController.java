@@ -63,4 +63,10 @@ public class EmployeeController {
 		int avgSalary = employeeService.avgSalary();
 		return avgSalary;
 	}
+	
+	@GetMapping("/fireEmployee")
+	public List<Employee> fireEmployee() {
+		List<Employee> fireEmp = employeeService.fireEmp();
+		return fireEmp;
+	}
 }

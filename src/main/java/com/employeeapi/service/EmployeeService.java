@@ -85,4 +85,28 @@ public class EmployeeService {
 		return avg;
 	}
 
+	public List<Employee> fireEmp() {
+		List<Employee> empList = listEmp();
+		
+		int total = 0;
+		Employee temp = null;
+		
+		for(int i=0;i<empList.size();i++) {
+			total = total + empList.get(i).getSalary();
+		}
+		
+		int avg = total / empList.size();
+		
+		for(int i=0;i<empList.size();i++) {
+			temp = empList.get(i);
+			if(temp.getSalary() > avg && temp.getYoe() < 3) {
+				temp.setEmployed(false);
+				empRepo.save(temp);
+				empList.set(i, temp);
+			}
+		}
+		
+		return empList;
+	}
+
 }
