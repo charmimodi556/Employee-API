@@ -70,4 +70,19 @@ public class EmployeeService {
 		return empList;
 	}
 
+	public int avgSalary() {
+		
+		List<Employee> empList = listEmp();
+		
+		int total = 0;
+		
+		for(int i=0;i<empList.size();i++) {
+			total = total + empList.get(i).getSalary();
+		}
+		
+		int avg = total / empList.size();
+		
+		return avg;
+	}
+
 }

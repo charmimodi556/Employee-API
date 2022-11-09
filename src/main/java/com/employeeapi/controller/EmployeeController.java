@@ -57,4 +57,10 @@ public class EmployeeController {
 		List<Employee> minUnEmployed = employeeService.minUnEmployed();
 		return minUnEmployed;
 	}
+	
+	@GetMapping("/avgSalary")
+	public int avgSalary() {
+		int avgSalary = employeeService.avgSalary();
+		return avgSalary;
+	}
 }
