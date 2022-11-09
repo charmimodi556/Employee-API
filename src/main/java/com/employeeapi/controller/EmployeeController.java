@@ -45,4 +45,16 @@ public class EmployeeController {
 		employeeService.delEmp(id);
 		return "Employee details deleted successfully!!";
 	}
+	
+	@GetMapping("/max/UnEmployed")
+	public List<Employee> unEmployed() {
+		List<Employee> unEmployed = employeeService.maxUnEmployed();
+		return unEmployed;
+	}
+	
+	@GetMapping("/min/UnEmployed")
+	public List<Employee> minUnEmployed() {
+		List<Employee> minUnEmployed = employeeService.minUnEmployed();
+		return minUnEmployed;
+	}
 }

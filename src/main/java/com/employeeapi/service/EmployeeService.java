@@ -32,4 +32,42 @@ public class EmployeeService {
 		empRepo.deleteById(id);
 	}
 
+	public List<Employee> maxUnEmployed() {
+		List<Employee> empList = listEmp();
+		
+		int max = 0;
+		Employee temp=null;
+		
+		for(int i=0;i<empList.size();i++) {
+			if(empList.get(i).getSalary()>max) {
+				max = empList.get(i).getSalary();
+				temp = empList.get(i);
+			}
+		}
+	
+		temp.setEmployed(false);
+		empRepo.save(temp);
+		
+		return empList;
+	}
+
+	public List<Employee> minUnEmployed() {
+		List<Employee> empList = listEmp();
+		
+		int min = Integer.MAX_VALUE;
+		Employee temp=null;
+		
+		for(int i=0;i<empList.size();i++) {
+			if(empList.get(i).getSalary()<min) {
+				min = empList.get(i).getSalary();
+				temp = empList.get(i);
+			}
+		}
+	
+		temp.setEmployed(false);
+		empRepo.save(temp);
+		
+		return empList;
+	}
+
 }
